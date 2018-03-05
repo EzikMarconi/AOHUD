@@ -15,7 +15,7 @@ default
 		llRequestPermissions(llGetOwner() , PERMISSION_OVERRIDE_ANIMATIONS |  PERMISSION_TRIGGER_ANIMATION);
 	}
 	run_time_permissions(integer perm)
-	{
+    {
         if (perm & (PERMISSION_TRIGGER_ANIMATION | PERMISSION_OVERRIDE_ANIMATIONS))
         {
             init();
