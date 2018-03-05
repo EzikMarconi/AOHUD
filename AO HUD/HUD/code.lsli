@@ -1,7 +1,22 @@
+key notecard_key = NULL_KEY;
+integer iLine = 0;
+key kQuery;
+
 init ()
 {
-	//load notecard
 	llOwnerSay("loading notecard");
+
+	key note = llGetInventoryKey("config");
+	
+	if (note == notecard_key)
+    {
+        return;
+	}
+
+	notecard_key = note;
+    iLine = 0;
+	kQuery = llGetNotecardLine("config", iLine);
+
 }
 
 default
@@ -19,6 +34,22 @@ default
         if (perm & (PERMISSION_TRIGGER_ANIMATION | PERMISSION_OVERRIDE_ANIMATIONS))
         {
             init();
+        }
+	}
+	dataserver(key query_id, string data) 
+    {
+        if (query_id == kQuery) 
+        {
+            if (data == EOF) 
+            {
+                llOwnerSay("Finished reading configuration.");
+            } 
+            else 
+            {
+                llOwnerSay("Read notecard line: " + data);
+                ++iLine;
+                kQuery = llGetNotecardLine("config", iLine);
+            }
         }
     }
 }
