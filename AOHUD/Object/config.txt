@@ -1,4 +1,0 @@
-#notecard
-#"anim";"new anim"
-prejump;chop_sit
-jump;chop_sit

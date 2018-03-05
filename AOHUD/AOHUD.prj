@@ -1,5 +1,5 @@
 <Project name="AOHUD" guid="2afe6c7e-97ca-4808-9d34-6dde4d3515f3">
-	<Object name="Object" guid="f80a29d8-4684-42ca-9875-759eb21f1c70" active="true">
+	<Object name="HUD" guid="f80a29d8-4684-42ca-9875-759eb21f1c70" active="true">
 		<Script name="code.lsl" guid="927a3c25-ef91-498b-83ca-4389edd1306e">
 		</Script>
 		<Notecard name="config.txt" guid="4e60e3f0-9ca0-49ae-b129-48a35da20204">

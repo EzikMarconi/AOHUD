@@ -1,0 +1,4 @@
+#notecard
+#"anim";"new anim"
+PreJumping;dance1
+Jumping;yoga_float
