@@ -1,12 +1,6 @@
 # AOHUD
 Simple code for override animation in Second Life.
 
-**Attention**
-
-**This project is under construction!**
-
-**Not ready to run in Second Life**
-
 Use new function ll*AnimationOverride().
 
 LSL - Linden Script Language

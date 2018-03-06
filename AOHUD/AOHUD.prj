@@ -4,5 +4,9 @@
 		</Script>
 		<Notecard name="config.txt" guid="4e60e3f0-9ca0-49ae-b129-48a35da20204">
 		</Notecard>
+		<Notecard name="README.RU" guid="f2c2878d-06ab-4fd9-b55c-3bdaeb7e807b">
+		</Notecard>
+		<Notecard name="README.EN" guid="7f75c442-cc4e-4610-b41d-891c166ffb04">
+		</Notecard>
 	</Object>
 </Project>

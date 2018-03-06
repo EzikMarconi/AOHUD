@@ -1,0 +1,48 @@
+ATTENTION!
+This HUD does not contain animations!
+But you can upload your own!
+
+1. What is it?
+This is a simple example, as it is possible using the new LSL functions AnimationOverride to do
+simple AO HUD to replace standard animations.
+
+2. How it works
+Before starting the HUD, you need to make a setting.
+You can use the built-in animations.
+List: http://wiki.secondlife.com/wiki/Internal_Animations
+These animations are always available, even if they are not in your inventory.
+
+So you can load any other animations into the object and use them
+
+Before you start, you need to open the HUD for editing.
+Change the file config.txt.
+The syntax is very simple:
+Animation state to be overriden;Animation name
+
+Possible avatar states:
+Crouching
+CrouchWalking
+Falling Down
+Flying
+FlyingSlow
+Hovering
+Hovering Down
+Hovering Up
+Jumping
+Landing *
+PreJumping *
+Running
+Sitting
+Sitting on Ground
+Standing
+Standing Up *
+Striding
+Soft Landing *
+Taking Off
+Turning Left
+Turning Right
+Walking
+  
+* Some states are transitional and have undefined behavior 
+if set to continuously looping animations. 
+These states are "PreJumping", "Landing", "Soft Landing" and "Standing Up".

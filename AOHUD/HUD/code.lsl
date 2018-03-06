@@ -1,4 +1,3 @@
-//for load config
 key notecard_key = NULL_KEY;
 integer iLine = 0;
 key kQuery;
@@ -17,6 +16,14 @@ SetOverride(string from, string to)
 	llSetAnimationOverride( from, to);
 }
 
+loading_notecard()
+{
+	key note = llGetInventoryKey("config.txt");
+	notecard_key = note;
+	iLine = 0;
+	kQuery = llGetNotecardLine("config.txt", iLine);
+}
+
 default
 {
 	on_rez(integer start_param)
@@ -31,15 +38,12 @@ default
 		integer perm = llGetPermissions();
 		if (perm & (PERMISSION_TRIGGER_ANIMATION | PERMISSION_OVERRIDE_ANIMATIONS))
 		{
-			key note = llGetInventoryKey("config.txt");
-			notecard_key = note;
-			iLine = 0;
-			kQuery = llGetNotecardLine("config.txt", iLine);
-
-		} else
-	{
-		llRequestPermissions(llGetOwner() , PERMISSION_OVERRIDE_ANIMATIONS |  PERMISSION_TRIGGER_ANIMATION);
-	}
+			loading_notecard();
+		}
+		else
+		{
+			llRequestPermissions(llGetOwner() , PERMISSION_OVERRIDE_ANIMATIONS |  PERMISSION_TRIGGER_ANIMATION);
+		}
 	}
 	touch_start(integer a)
 	{
@@ -58,15 +62,7 @@ default
 		if (perm & (PERMISSION_TRIGGER_ANIMATION | PERMISSION_OVERRIDE_ANIMATIONS))
 		{
 			llResetAnimationOverride("ALL");
-			key note = llGetInventoryKey("config.txt");
-			if (note == notecard_key)
-			{
-				return;
-			}
-
-			notecard_key = note;
-			iLine = 0;
-			kQuery = llGetNotecardLine("config.txt", iLine);
+			loading_notecard();
 		}
 	}
 	dataserver(key query_id, string data)
@@ -75,7 +71,6 @@ default
 		{
 			if (data == EOF)
 			{
-				//llOwnerSay("Finished reading configuration.");
 				state work;
 			}
 			else
@@ -87,9 +82,8 @@ default
 					{
 						SetOverride(llList2String(over, 0),llList2String(over, 1));
 					} else {
-							llOwnerSay("Config error. Line:"+(string)iLine);
+						llOwnerSay("Config error. Line:"+(string)iLine);
 					}
-
 				}
 				++iLine;
 				kQuery = llGetNotecardLine("config.txt", iLine);
@@ -138,5 +132,4 @@ state work
 	{
 		state hold;
 	}
-
 }
