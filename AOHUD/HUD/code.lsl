@@ -30,6 +30,17 @@ default
 	{
 		llResetScript();
 	}
+	attach(key id)
+	{
+		if (id)
+        {
+            llResetScript();
+        }
+        else
+        {
+            llResetAnimationOverride("ALL");
+        }	
+	}
 	state_entry()
 	{
 		llSetColor(<1.0, 1.0, 1.0>,ALL_SIDES);
@@ -97,9 +108,16 @@ state hold
 	{
 		llResetScript();
 	}
-	attach(key attached)
+	attach(key id)
 	{
-		llResetScript();
+		if (id)
+        {
+            llResetScript();
+        }
+        else
+        {
+            llResetAnimationOverride("ALL");
+        }	
 	}
 	state_entry()
 	{
@@ -119,9 +137,16 @@ state work
 	{
 		llResetScript();
 	}
-	attach(key attached)
+	attach(key id)
 	{
-		llResetScript();
+		if (id)
+        {
+            llResetScript();
+        }
+        else
+        {
+            llResetAnimationOverride("ALL");
+        }	
 	}
 	state_entry()
 	{
